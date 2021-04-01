@@ -63,17 +63,6 @@ export default configMerger(walttiConfig, {
     ],
   },
 
-  mapLayers: {
-    tooltip: {
-      fi:
-        'Uutta! Saat nyt vyöhykkeet ja lähellä olevat bussit kartalle asetuksista.',
-      en:
-        'New! You can now get zones and nearby busses on the map from the settings.',
-      sv:
-        'Nytt! I inställningarna kan du nu välja att se zoner och närliggande bussar på kartan.',
-    },
-  },
-
   itinerary: {
     showZoneLimits: true,
     // Number of days to include to the service time range from the future (DT-3175)
@@ -181,7 +170,7 @@ export default configMerger(walttiConfig, {
             type: 'a',
             content:
               'Tervetuloa tutustumaan 9.8.2021 aloittavaan Nyssen palveluun. Aikataulut ovat alustavia. Lisätietoa linjastosta tästä linkistä.',
-            href: 'https://www.nysse.fi/ratikka/linjaston-uudistus.html',
+            href: 'https://www.nysse.fi/linjasto2021',
           },
         ],
         en: [
