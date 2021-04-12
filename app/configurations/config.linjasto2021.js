@@ -268,10 +268,6 @@ export default configMerger(walttiConfig, {
 
   // enable train and tram routing for Tampere
   transportModes: {
-    rail: {
-      availableForSelection: true,
-      defaultValue: true,
-    },
     tram: {
       availableForSelection: true,
       defaultValue: true,
@@ -279,5 +275,5 @@ export default configMerger(walttiConfig, {
   },
 
   // boarding a long distance train with bicycle costs extra
-  modesWithNoBike: ['RAIL', 'TRAM'],
+  modesWithNoBike: ['TRAM'],
 });
