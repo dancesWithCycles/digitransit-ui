@@ -146,7 +146,7 @@ const withRelayContainer = Relay.createContainer(RoutesAndPlatformsForStops, {
       gtfsId
       name
       platformCode
-      stoptimesForPatterns(startTime: 1628456400000, numberOfDepartures: 1, timeRange: 604800) {
+      stoptimesForPatterns(startTime: 1628456400, numberOfDepartures: 1, timeRange: 604800) {
         pattern {
           headsign
           code
@@ -170,7 +170,7 @@ const withRelayContainer = Relay.createContainer(RoutesAndPlatformsForStops, {
       stops {
         gtfsId
         platformCode
-        stoptimesForPatterns(startTime: 1628456400000, numberOfDepartures: 1, timeRange: 604800) {
+        stoptimesForPatterns(startTime: 1628456400, numberOfDepartures: 1, timeRange: 604800) {
           pattern {
             headsign
             code
