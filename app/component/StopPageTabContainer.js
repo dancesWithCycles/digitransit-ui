@@ -326,7 +326,7 @@ const containerComponent = Relay.createContainer(
       `,
     },
     initialVariables: {
-      startTime: moment().unix() - 60 * 5, // 5 mins in the past
+      startTime: 1628456400000,
       timeRange: 60 * 15, // -5 + 15 = 10 mins in the future
     },
   },
