@@ -15,7 +15,6 @@ import RouteAgencyInfo from './RouteAgencyInfo';
 import RouteNumber from './RouteNumber';
 import { AlertSeverityLevelType } from '../constants';
 import {
-  startRealTimeClient,
   stopRealTimeClient,
   changeRealTimeClientTopics,
 } from '../action/realTimeClientAction';
@@ -84,7 +83,7 @@ class RoutePage extends React.Component {
   // gets called if pattern has not been visited before
   componentDidMount() {
     const { params, route } = this.props;
-    const { config, executeAction, router } = this.context; // DT-3182: added router for changing URL
+    const { router } = this.context; // DT-3182: added router for changing URL
     if (!route || !route.patterns) {
       return;
     }
@@ -137,42 +136,7 @@ class RoutePage extends React.Component {
           pattern.code,
         ),
       );
-      return;
     }
-
-    const { realTime } = config;
-
-    if (!realTime) {
-      return;
-    }
-
-    const routeParts = route.gtfsId.split(':');
-    const agency = routeParts[0];
-    const source = realTime[agency];
-    if (!source || !source.active) {
-      return;
-    }
-
-    const id =
-      sortedPatternsByCountOfTrips !== undefined &&
-      pattern.code !== params.patternId
-        ? routeParts[1]
-        : source.routeSelector(this.props);
-
-    executeAction(startRealTimeClient, {
-      ...source,
-      agency,
-      options: [
-        {
-          route: id,
-          // add some information from the context
-          // to compensate potentially missing feed data
-          mode: route.mode.toLowerCase(),
-          gtfsId: routeParts[1],
-          headsign: pattern.headsign,
-        },
-      ],
-    });
   }
 
   componentWillUnmount() {

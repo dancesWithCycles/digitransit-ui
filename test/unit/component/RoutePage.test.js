@@ -1,11 +1,9 @@
 import { expect } from 'chai';
 import { describe, it } from 'mocha';
 import React from 'react';
-import sinon from 'sinon';
 
 import { mockContext } from '../helpers/mock-context';
 import { shallowWithIntl } from '../helpers/mock-intl-enzyme';
-import { startRealTimeClient } from '../../../app/action/realTimeClientAction';
 import { Component as RoutePage } from '../../../app/component/RoutePage';
 import { AlertSeverityLevelType } from '../../../app/constants';
 import Icon from '../../../app/component/Icon';
@@ -92,78 +90,6 @@ describe('<RoutePage />', () => {
       context: { ...mockContext },
     });
     expect(wrapper.find('.activeAlert')).to.have.lengthOf(0);
-  });
-
-  it('should start the real time client after mounting', () => {
-    const props = {
-      breakpoint: 'large',
-      location: {
-        pathname: `/${PREFIX_ROUTES}/tampere:32/${PREFIX_STOPS}/tampere:32:1:01`,
-      },
-      params: {
-        patternId: 'tampere:32:1:01',
-      },
-      route: {
-        gtfsId: 'tampere:32',
-        mode: 'BUS',
-        patterns: [{ code: 'tampere:32:1:01', headsign: 'Tampella' }],
-      },
-    };
-    const context = {
-      ...mockContext,
-      config: {
-        realTime: {
-          tampere: {
-            gtfsRt: 'foobar',
-            routeSelector: () => '32',
-            active: true,
-          },
-        },
-      },
-      executeAction: sinon.stub(),
-    };
-
-    shallowWithIntl(<RoutePage {...props} />, {
-      context,
-    });
-
-    expect(context.executeAction.callCount).to.equal(1);
-    expect(context.executeAction.args[0][0]).to.equal(startRealTimeClient);
-  });
-
-  it('should not start the real time client after mounting if realtime is not active', () => {
-    const props = {
-      breakpoint: 'large',
-      location: {
-        pathname: `/${PREFIX_ROUTES}/tampere:32/${PREFIX_STOPS}/tampere:32:1:01`,
-      },
-      params: {
-        patternId: 'tampere:32:1:01',
-      },
-      route: {
-        gtfsId: 'tampere:32',
-        mode: 'BUS',
-      },
-    };
-    const context = {
-      ...mockContext,
-      config: {
-        realTime: {
-          tampere: {
-            gtfsRt: 'foobar',
-            routeSelector: () => '32',
-            active: false,
-          },
-        },
-      },
-      executeAction: sinon.stub(),
-    };
-
-    shallowWithIntl(<RoutePage {...props} />, {
-      context,
-    });
-
-    expect(context.executeAction.callCount).to.equal(0);
   });
 
   it('should set the activeAlert class if there is a cancelation for today', () => {
