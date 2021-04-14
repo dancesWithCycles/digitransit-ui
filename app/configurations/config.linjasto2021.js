@@ -6,14 +6,13 @@ const APP_TITLE = 'Linjasto 2021';
 const APP_DESCRIPTION = 'Linjasto 2021';
 
 const walttiConfig = require('./config.waltti').default;
-const tampereTimetables = require('./timetableConfigUtils').default.tampere;
 
 const minLat = 61.16;
 const maxLat = 62.31;
 const minLon = 22.68;
 const maxLon = 24.9;
 
-const API_URL = process.env.API_URL || 'https://dev-api.digitransit.fi';
+const API_URL = process.env.API_URL || 'https://api.digitransit.fi';
 const MAP_URL =
   process.env.MAP_URL || 'https://digitransit-dev-cdn-origin.azureedge.net';
 
@@ -262,9 +261,6 @@ export default configMerger(walttiConfig, {
   },
   showAllBusses: false,
   showVehiclesOnStopPage: false,
-  timetables: {
-    tampere: tampereTimetables,
-  },
 
   // enable train and tram routing for Tampere
   transportModes: {
