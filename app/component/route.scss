@@ -620,6 +620,9 @@ $margin-left-right: 1.333em;
 
 .route-schedule-dropdowns {
   max-height: 50px;
+  .dd-container {
+    width: 50%;
+  }
   @media print {
     display: none;
   }
