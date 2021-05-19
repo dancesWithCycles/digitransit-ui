@@ -1,5 +1,6 @@
 /* eslint-disable prefer-template */
 const CONFIG = 'vsh';
+const APP_TITLE = 'app title';
 const API_URL = process.env.API_URL || 'https://api.digitransit.im.verschwoerhaus.de';
 const MAP_URL = process.env.MAP_URL || 'https://osm-demo-{s}.wheregroup.com/tiles/1.0.0/osm/webmercator/';
 const APP_DESCRIPTION = 'GTFS-basierte Auskunft für Ulm, basierend auf digitransit';
