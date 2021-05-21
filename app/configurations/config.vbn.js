@@ -15,7 +15,7 @@ const maxLon = 31;
 export default configMerger(walttiConfig, {
   CONFIG,
 
-  appBarLink: { name: 'Vbn', href: 'http://www.vbn.fi/' },
+  appBarLink: { name: 'VBN', href: 'http://www.vbn.de/' },
 
   colors: {
     primary: '#e3000f',
