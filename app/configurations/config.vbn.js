@@ -65,7 +65,7 @@ export default configMerger(walttiConfig, {
 
   footer: {
     content: [
-      { label: `© Vbn ${walttiConfig.YEAR}` },
+      { label: `© VBN ${walttiConfig.YEAR}` },
       {},
       {
         name: 'about-this-service',
